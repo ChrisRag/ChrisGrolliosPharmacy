@@ -1,0 +1,224 @@
+<meta charset="UTF-8">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans);color:var(--color-text-primary)}
+.site{background:#fff;border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);overflow:hidden}
+nav{background:#1B6B3A;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:56px}
+.nav-logo{color:#fff;font-size:15px;font-weight:500;display:flex;align-items:center;gap:10px}
+.nav-cross{width:22px;height:22px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.cross-icon{width:12px;height:12px;position:relative;display:flex;align-items:center;justify-content:center}
+.cross-h{width:10px;height:2px;background:#1B6B3A;border-radius:1px;position:absolute}
+.cross-v{width:2px;height:10px;background:#1B6B3A;border-radius:1px;position:absolute}
+.nav-links{display:flex;gap:1.5rem}
+.nav-links a{color:#cde8d8;font-size:13px;text-decoration:none;cursor:pointer}
+.nav-links a:hover{color:#fff}
+.hero{background:#1B6B3A;padding:3.5rem 2rem;text-align:center;position:relative;overflow:hidden}
+.hero-bg{position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,0.05)}
+.hero-bg2{position:absolute;bottom:-60px;left:-30px;width:160px;height:160px;border-radius:50%;background:rgba(255,255,255,0.04)}
+.hero h1{color:#fff;font-size:28px;font-weight:500;margin-bottom:8px;position:relative}
+.hero p{color:#cde8d8;font-size:15px;margin-bottom:1.5rem;position:relative}
+.hero-cta{display:inline-block;background:#fff;color:#1B6B3A;font-size:13px;font-weight:500;padding:10px 24px;border-radius:8px;cursor:pointer;border:none;position:relative}
+.hero-badges{display:flex;justify-content:center;gap:12px;margin-top:1.5rem;flex-wrap:wrap;position:relative}
+.badge{background:rgba(255,255,255,0.15);color:#fff;font-size:12px;padding:5px 12px;border-radius:20px;border:0.5px solid rgba(255,255,255,0.3)}
+section{padding:2rem}
+.section-title{font-size:18px;font-weight:500;color:#1B6B3A;margin-bottom:0.3rem}
+.section-sub{font-size:13px;color:#666;margin-bottom:1.5rem}
+.divider{width:40px;height:2px;background:#1B6B3A;margin:0.5rem 0 1.2rem}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.about-card{background:#f4faf7;border:0.5px solid #c0e0cf;border-radius:8px;padding:1rem}
+.about-card h3{font-size:13px;font-weight:500;color:#1B6B3A;margin-bottom:4px}
+.about-card p{font-size:12px;color:#555;line-height:1.5}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.photo-box{border-radius:8px;background:#e8f4ee;border:0.5px solid #c0e0cf;height:100px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px}
+.photo-icon{width:32px;height:32px;border-radius:50%;background:#1B6B3A22;display:flex;align-items:center;justify-content:center}
+.photo-label{font-size:11px;color:#2D8A52}
+.offers-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.offer-card{border:0.5px solid #c0e0cf;border-radius:8px;overflow:hidden}
+.offer-header{background:#1B6B3A;padding:10px 12px}
+.offer-header span{color:#fff;font-size:12px;font-weight:500}
+.offer-body{padding:10px 12px;background:#f4faf7}
+.offer-body p{font-size:12px;color:#555;line-height:1.5;margin-bottom:6px}
+.offer-badge{display:inline-block;background:#fff;border:0.5px solid #1B6B3A;color:#1B6B3A;font-size:11px;padding:2px 8px;border-radius:20px}
+.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.service-item{text-align:center;padding:1rem 0.5rem;border:0.5px solid #c0e0cf;border-radius:8px;background:#f4faf7}
+.service-dot{width:36px;height:36px;border-radius:50%;background:#1B6B3A;margin:0 auto 8px;display:flex;align-items:center;justify-content:center}
+.service-item p{font-size:11px;color:#555;line-height:1.4;margin-top:4px}
+.service-item h4{font-size:12px;font-weight:500;color:#1B6B3A}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.contact-card{background:#f4faf7;border:0.5px solid #c0e0cf;border-radius:8px;padding:1.2rem}
+.contact-card h3{font-size:13px;font-weight:500;color:#1B6B3A;margin-bottom:8px}
+.contact-row{display:flex;align-items:flex-start;gap:8px;margin-bottom:6px}
+.contact-label{font-size:12px;color:#666;min-width:70px}
+.contact-val{font-size:12px;color:#222}
+.hours-table{width:100%;border-collapse:collapse;font-size:12px}
+.hours-table tr{border-bottom:0.5px solid #c0e0cf}
+.hours-table tr:last-child{border:none}
+.hours-table td{padding:5px 0;vertical-align:top}
+.hours-table td:last-child{text-align:right;color:#1B6B3A;font-weight:500}
+.map-placeholder{background:#e8f4ee;border-radius:8px;border:0.5px solid #c0e0cf;height:80px;display:flex;align-items:center;justify-content:center;margin-top:8px}
+.inj-banner{background:#f4faf7;border:0.5px solid #1B6B3A;border-left:3px solid #1B6B3A;border-radius:8px;padding:1rem 1.2rem;margin-top:1rem}
+.inj-banner h3{font-size:13px;font-weight:500;color:#1B6B3A;margin-bottom:4px}
+.inj-banner p{font-size:12px;color:#555;line-height:1.6}
+footer{background:#1B6B3A;padding:1.2rem 2rem;text-align:center}
+footer p{color:#cde8d8;font-size:12px}
+footer strong{color:#fff;font-weight:500}
+</style>
+
+<div class="site">
+  <nav>
+    <div class="nav-logo">
+      <div class="nav-cross"><div class="cross-icon"><div class="cross-h"></div><div class="cross-v"></div></div></div>
+      &#934;&#945;&#961;&#956;&#945;&#954;&#949;&#943;&#959; &#935;&#961;&#942;&#963;&#964;&#959;&#962; &#915;&#961;&#972;&#955;&#955;&#953;&#959;&#962;
+    </div>
+    <div class="nav-links">
+      <a>&#913;&#961;&#967;&#953;&#954;&#942;</a>
+      <a>&#935;&#974;&#961;&#959;&#962;</a>
+      <a>&#928;&#961;&#959;&#963;&#966;&#959;&#961;&#941;&#962;</a>
+      <a>&#933;&#960;&#951;&#961;&#949;&#963;&#943;&#949;&#962;</a>
+      <a>&#917;&#960;&#953;&#954;&#959;&#953;&#957;&#969;&#957;&#943;&#945;</a>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-bg2"></div>
+    <h1>&#934;&#945;&#961;&#956;&#945;&#954;&#949;&#943;&#959; &#935;&#961;&#942;&#963;&#964;&#959;&#962; &#915;&#961;&#972;&#955;&#955;&#953;&#959;&#962;</h1>
+    <p>&#919; &#965;&#947;&#949;&#943;&#945; &#963;&#945;&#962;, &#951; &#960;&#961;&#959;&#964;&#949;&#961;&#945;&#953;&#972;&#964;&#951;&#964;&#940; &#956;&#945;&#962; &#8212; &#954;&#940;&#952;&#949; &#956;&#941;&#961;&#945;, &#947;&#953;&#945; &#954;&#940;&#952;&#949; &#945;&#957;&#940;&#947;&#954;&#951;</p>
+    <button class="hero-cta">&#917;&#960;&#953;&#954;&#959;&#953;&#957;&#969;&#957;&#942;&#963;&#964;&#949; &#956;&#945;&#950;&#943; &#956;&#945;&#962;</button>
+    <div class="hero-badges">
+      <div class="badge">&#917;&#958;&#949;&#953;&#948;&#953;&#954;&#949;&#965;&#956;&#941;&#957;&#951; &#963;&#965;&#956;&#946;&#959;&#965;&#955;&#942;</div>
+      <div class="badge">&#928;&#955;&#942;&#961;&#951;&#962; &#947;&#954;&#940;&#956;&#945; &#960;&#961;&#959;&#970;&#972;&#957;&#964;&#969;&#957;</div>
+      <div class="badge">&#902;&#956;&#949;&#963;&#951; &#949;&#958;&#965;&#960;&#951;&#961;&#941;&#964;&#951;&#963;&#951;</div>
+    </div>
+  </div>
+
+  <section style="background:#fff">
+    <div class="section-title">&#931;&#967;&#949;&#964;&#953;&#954;&#940; &#956;&#949; &#949;&#956;&#940;&#962;</div>
+    <div class="divider"></div>
+    <div class="about-grid">
+      <div class="about-card">
+        <h3>&#917;&#956;&#960;&#949;&#953;&#961;&#943;&#945; &amp; &#932;&#949;&#967;&#957;&#959;&#947;&#957;&#969;&#963;&#943;&#945;</h3>
+        <p>&#928;&#959;&#955;&#965;&#949;&#964;&#942;&#962; &#949;&#956;&#960;&#949;&#953;&#961;&#943;&#945; &#963;&#964;&#959;&#957; &#966;&#945;&#961;&#956;&#945;&#954;&#949;&#965;&#964;&#953;&#954;&#972; &#954;&#955;&#940;&#948;&#959; &#956;&#949; &#949;&#958;&#949;&#953;&#948;&#953;&#954;&#949;&#965;&#956;&#941;&#957;&#951; &#947;&#957;&#974;&#963;&#951; &#954;&#945;&#953; &#965;&#960;&#949;&#973;&#952;&#965;&#957;&#951; &#963;&#965;&#956;&#946;&#959;&#965;&#955;&#942; &#947;&#953;&#945; &#954;&#940;&#952;&#949; &#945;&#957;&#940;&#947;&#954;&#951;.</p>
+      </div>
+      <div class="about-card">
+        <h3>&#928;&#959;&#953;&#959;&#964;&#953;&#954;&#940; &#928;&#961;&#959;&#970;&#972;&#957;&#964;&#945;</h3>
+        <p>&#928;&#955;&#959;&#973;&#963;&#953;&#945; &#949;&#960;&#953;&#955;&#959;&#947;&#942; &#966;&#945;&#961;&#956;&#940;&#954;&#969;&#957;, &#960;&#945;&#961;&#945;&#966;&#945;&#961;&#956;&#945;&#954;&#949;&#965;&#964;&#953;&#954;&#974;&#957; &#954;&#945;&#953; &#954;&#945;&#955;&#955;&#965;&#957;&#964;&#953;&#954;&#974;&#957; &#945;&#960;&#972; &#945;&#958;&#953;&#972;&#960;&#953;&#963;&#964;&#959;&#965;&#962; &#954;&#945;&#964;&#945;&#963;&#954;&#949;&#965;&#945;&#963;&#964;&#941;&#962;.</p>
+      </div>
+      <div class="about-card">
+        <h3>&#917;&#958;&#945;&#964;&#959;&#956;&#953;&#954;&#949;&#965;&#956;&#941;&#957;&#951; &#934;&#961;&#959;&#957;&#964;&#943;&#948;&#945;</h3>
+        <p>&#922;&#940;&#952;&#949; &#960;&#949;&#955;&#940;&#964;&#951;&#962; &#945;&#957;&#964;&#953;&#956;&#949;&#964;&#969;&#960;&#943;&#950;&#949;&#964;&#945;&#953; &#956;&#949; &#960;&#961;&#959;&#963;&#959;&#967;&#942; &#954;&#945;&#953; &#949;&#957;&#948;&#953;&#945;&#966;&#941;&#961;&#959;&#957; &#947;&#953;&#945; &#964;&#951;&#957; &#965;&#947;&#949;&#943;&#945; &#954;&#945;&#953; &#964;&#951;&#957; &#949;&#965;&#949;&#958;&#943;&#945; &#964;&#959;&#965;.</p>
+      </div>
+      <div class="about-card">
+        <h3>&#931;&#973;&#947;&#967;&#961;&#959;&#957;&#959;&#962; &#917;&#958;&#959;&#960;&#955;&#953;&#963;&#956;&#972;&#962;</h3>
+        <p>&#902;&#961;&#964;&#953;&#945; &#949;&#958;&#959;&#960;&#955;&#953;&#963;&#956;&#941;&#957;&#959; &#966;&#945;&#961;&#956;&#945;&#954;&#949;&#943;&#959; &#956;&#949; &#963;&#973;&#947;&#967;&#961;&#959;&#957;&#945; &#956;&#941;&#963;&#945; &#947;&#953;&#945; &#956;&#941;&#964;&#961;&#951;&#963;&#951; &#960;&#943;&#949;&#963;&#951;&#962; &#954;&#945;&#953; &#940;&#955;&#955;&#949;&#962; &#954;&#955;&#953;&#957;&#953;&#954;&#941;&#962; &#965;&#960;&#951;&#961;&#949;&#963;&#943;&#949;&#962;.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#f9fcfa;border-top:0.5px solid #c0e0cf">
+    <div class="section-title">&#927; &#935;&#974;&#961;&#959;&#962; &#956;&#945;&#962;</div>
+    <div class="section-sub">&#924;&#953;&#945; &#956;&#945;&#964;&#953;&#940; &#963;&#964;&#959; &#966;&#945;&#961;&#956;&#945;&#954;&#949;&#943;&#959; &#956;&#945;&#962;</div>
+    <div class="divider"></div>
+    <div class="gallery-grid">
+      <div class="photo-box"><div class="photo-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="4" width="14" height="9" rx="1.5" stroke="#1B6B3A" stroke-width="1.2"/><path d="M5 4V3a1 1 0 011-1h4a1 1 0 011 1v1" stroke="#1B6B3A" stroke-width="1.2"/><circle cx="8" cy="8.5" r="2" stroke="#1B6B3A" stroke-width="1.2"/></svg></div><span class="photo-label">&#917;&#943;&#963;&#959;&#948;&#959;&#962;</span></div>
+      <div class="photo-box"><div class="photo-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="4" width="14" height="9" rx="1.5" stroke="#1B6B3A" stroke-width="1.2"/><path d="M5 4V3a1 1 0 011-1h4a1 1 0 011 1v1" stroke="#1B6B3A" stroke-width="1.2"/><circle cx="8" cy="8.5" r="2" stroke="#1B6B3A" stroke-width="1.2"/></svg></div><span class="photo-label">&#917;&#963;&#969;&#964;&#949;&#961;&#953;&#954;&#972;&#962; &#967;&#974;&#961;&#959;&#962;</span></div>
+      <div class="photo-box"><div class="photo-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="4" width="14" height="9" rx="1.5" stroke="#1B6B3A" stroke-width="1.2"/><path d="M5 4V3a1 1 0 011-1h4a1 1 0 011 1v1" stroke="#1B6B3A" stroke-width="1.2"/><circle cx="8" cy="8.5" r="2" stroke="#1B6B3A" stroke-width="1.2"/></svg></div><span class="photo-label">&#928;&#961;&#959;&#970;&#972;&#957;&#964;&#945;</span></div>
+      <div class="photo-box"><div class="photo-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="4" width="14" height="9" rx="1.5" stroke="#1B6B3A" stroke-width="1.2"/><path d="M5 4V3a1 1 0 011-1h4a1 1 0 011 1v1" stroke="#1B6B3A" stroke-width="1.2"/><circle cx="8" cy="8.5" r="2" stroke="#1B6B3A" stroke-width="1.2"/></svg></div><span class="photo-label">&#932;&#945;&#956;&#949;&#943;&#959;</span></div>
+      <div class="photo-box"><div class="photo-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="4" width="14" height="9" rx="1.5" stroke="#1B6B3A" stroke-width="1.2"/><path d="M5 4V3a1 1 0 011-1h4a1 1 0 011 1v1" stroke="#1B6B3A" stroke-width="1.2"/><circle cx="8" cy="8.5" r="2" stroke="#1B6B3A" stroke-width="1.2"/></svg></div><span class="photo-label">&#914;&#953;&#964;&#961;&#943;&#957;&#945;</span></div>
+      <div class="photo-box"><div class="photo-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="4" width="14" height="9" rx="1.5" stroke="#1B6B3A" stroke-width="1.2"/><path d="M5 4V3a1 1 0 011-1h4a1 1 0 011 1v1" stroke="#1B6B3A" stroke-width="1.2"/><circle cx="8" cy="8.5" r="2" stroke="#1B6B3A" stroke-width="1.2"/></svg></div><span class="photo-label">&#917;&#958;&#969;&#964;&#949;&#961;&#953;&#954;&#972;</span></div>
+    </div>
+    <p style="font-size:11px;color:#888;margin-top:10px;text-align:center">&#927;&#953; &#966;&#969;&#964;&#959;&#947;&#961;&#945;&#966;&#943;&#949;&#962; &#952;&#945; &#945;&#957;&#964;&#953;&#954;&#945;&#964;&#945;&#963;&#964;&#945;&#952;&#959;&#973;&#957; &#956;&#949; &#964;&#953;&#962; &#960;&#961;&#945;&#947;&#956;&#945;&#964;&#953;&#954;&#941;&#962; &#949;&#953;&#954;&#972;&#957;&#949;&#962; &#964;&#959;&#965; &#966;&#945;&#961;&#956;&#945;&#954;&#949;&#943;&#959;&#965;</p>
+  </section>
+
+  <section style="background:#fff;border-top:0.5px solid #c0e0cf">
+    <div class="section-title">&#928;&#961;&#959;&#963;&#966;&#959;&#961;&#941;&#962; &amp; &#922;&#945;&#956;&#960;&#940;&#957;&#953;&#949;&#962;</div>
+    <div class="section-sub">&#917;&#960;&#953;&#954;&#959;&#953;&#957;&#969;&#957;&#942;&#963;&#964;&#949; &#956;&#945;&#950;&#943; &#956;&#945;&#962; &#947;&#953;&#945; &#964;&#953;&#962; &#964;&#961;&#941;&#967;&#959;&#965;&#963;&#949;&#962; &#960;&#961;&#959;&#963;&#966;&#959;&#961;&#941;&#962; &#956;&#945;&#962;</div>
+    <div class="divider"></div>
+    <div class="offers-grid">
+      <div class="offer-card">
+        <div class="offer-header"><span>&#914;&#953;&#964;&#945;&#956;&#943;&#957;&#949;&#962; &amp; &#931;&#965;&#956;&#960;&#955;&#951;&#961;&#974;&#956;&#945;&#964;&#945;</span></div>
+        <div class="offer-body">
+          <p>&#917;&#957;&#953;&#963;&#967;&#973;&#963;&#964;&#949; &#964;&#959; &#945;&#957;&#959;&#963;&#959;&#960;&#959;&#953;&#951;&#964;&#953;&#954;&#972; &#963;&#945;&#962; &#956;&#949; &#949;&#960;&#953;&#955;&#949;&#947;&#956;&#941;&#957;&#945; &#963;&#965;&#956;&#960;&#955;&#951;&#961;&#974;&#956;&#945;&#964;&#945; &#948;&#953;&#945;&#964;&#961;&#959;&#966;&#942;&#962; &#963;&#949; &#945;&#957;&#964;&#945;&#947;&#969;&#957;&#953;&#963;&#964;&#953;&#954;&#941;&#962; &#964;&#953;&#956;&#941;&#962;.</p>
+          <span class="offer-badge">&#916;&#953;&#945;&#961;&#954;&#942;&#962; &#960;&#961;&#959;&#963;&#966;&#959;&#961;&#940;</span>
+        </div>
+      </div>
+      <div class="offer-card">
+        <div class="offer-header"><span>&#916;&#949;&#961;&#956;&#959;&#954;&#945;&#955;&#955;&#965;&#957;&#964;&#953;&#954;&#940;</span></div>
+        <div class="offer-body">
+          <p>&#917;&#960;&#953;&#955;&#949;&#947;&#956;&#941;&#957;&#945; &#960;&#961;&#959;&#970;&#972;&#957;&#964;&#945; &#960;&#949;&#961;&#953;&#960;&#959;&#943;&#951;&#963;&#951;&#962; &#948;&#941;&#961;&#956;&#945;&#964;&#959;&#962; &#945;&#960;&#972; &#954;&#959;&#961;&#965;&#966;&#945;&#943;&#949;&#962; &#966;&#945;&#961;&#956;&#945;&#954;&#949;&#965;&#964;&#953;&#954;&#941;&#962; &#949;&#964;&#945;&#953;&#961;&#943;&#949;&#962;.</p>
+          <span class="offer-badge">&#925;&#941;&#949;&#962; &#945;&#966;&#943;&#958;&#949;&#953;&#962;</span>
+        </div>
+      </div>
+      <div class="offer-card">
+        <div class="offer-header"><span>&#917;&#960;&#959;&#967;&#953;&#945;&#954;&#941;&#962; &#928;&#961;&#959;&#963;&#966;&#959;&#961;&#941;&#962;</span></div>
+        <div class="offer-body">
+          <p>&#928;&#949;&#961;&#953;&#959;&#948;&#953;&#954;&#941;&#962; &#960;&#961;&#959;&#969;&#952;&#951;&#964;&#953;&#954;&#941;&#962; &#949;&#957;&#941;&#961;&#947;&#949;&#953;&#949;&#962; &#963;&#949; &#949;&#960;&#953;&#955;&#949;&#947;&#956;&#941;&#957;&#945; &#960;&#961;&#959;&#970;&#972;&#957;&#964;&#945;. &#929;&#969;&#964;&#942;&#963;&#964;&#949; &#956;&#945;&#962; &#947;&#953;&#945; &#964;&#953;&#962; &#964;&#961;&#941;&#967;&#959;&#965;&#963;&#949;&#962; &#949;&#954;&#960;&#964;&#974;&#963;&#949;&#953;&#962;.</p>
+          <span class="offer-badge">&#922;&#945;&#964;&#940; &#960;&#949;&#961;&#943;&#959;&#948;&#959;</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#f9fcfa;border-top:0.5px solid #c0e0cf">
+    <div class="section-title">&#933;&#960;&#951;&#961;&#949;&#963;&#943;&#949;&#962;</div>
+    <div class="divider"></div>
+    <div class="services-grid">
+      <div class="service-item">
+        <div class="service-dot"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <h4>&#917;&#954;&#964;&#941;&#955;&#949;&#963;&#951; &#931;&#965;&#957;&#964;&#945;&#947;&#974;&#957;</h4>
+        <p>&#902;&#956;&#949;&#963;&#951; &#949;&#954;&#964;&#941;&#955;&#949;&#963;&#951; &#953;&#945;&#964;&#961;&#953;&#954;&#974;&#957; &#963;&#965;&#957;&#964;&#945;&#947;&#974;&#957;</p>
+      </div>
+      <div class="service-item">
+        <div class="service-dot"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2a4 4 0 100 8A4 4 0 008 2zM4 12s0 2 4 2 4-2 4-2" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+        <h4>&#934;&#945;&#961;&#956;&#945;&#954;&#949;&#965;&#964;&#953;&#954;&#941;&#962; &#931;&#965;&#956;&#946;&#959;&#965;&#955;&#941;&#962;</h4>
+        <p>&#917;&#958;&#949;&#953;&#948;&#953;&#954;&#949;&#965;&#956;&#941;&#957;&#951; &#954;&#945;&#952;&#959;&#948;&#942;&#947;&#951;&#963;&#951;</p>
+      </div>
+      <div class="service-item">
+        <div class="service-dot"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v5l3 2" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/><circle cx="8" cy="8" r="6" stroke="#fff" stroke-width="1.4"/></svg></div>
+        <h4>&#924;&#941;&#964;&#961;&#951;&#963;&#951; &#928;&#943;&#949;&#963;&#951;&#962;</h4>
+        <p>&#916;&#969;&#961;&#949;&#940;&#957; &#956;&#941;&#964;&#961;&#951;&#963;&#951; &#945;&#961;&#964;&#951;&#961;&#953;&#945;&#954;&#942;&#962; &#960;&#943;&#949;&#963;&#951;&#962;</p>
+      </div>
+      <div class="service-item">
+        <div class="service-dot"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M5 8h2l1-3 2 6 1-3h2" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h4>&#935;&#959;&#961;&#942;&#947;&#951;&#963;&#951; &#917;&#957;&#941;&#963;&#949;&#969;&#957;</h4>
+        <p>&#917;&#957;&#948;&#959;&#956;&#965;&#970;&#954;&#941;&#962; &amp; &#965;&#960;&#959;&#948;&#972;&#961;&#953;&#949;&#962; &#949;&#957;&#941;&#963;&#949;&#953;&#962;</p>
+      </div>
+    </div>
+    <div class="inj-banner">
+      <h3>&#933;&#960;&#951;&#961;&#949;&#963;&#943;&#945; &#935;&#959;&#961;&#942;&#947;&#951;&#963;&#951;&#962; &#917;&#957;&#941;&#963;&#949;&#969;&#957;</h3>
+      <p>&#932;&#959; &#966;&#945;&#961;&#956;&#945;&#954;&#949;&#943;&#959; &#956;&#945;&#962; &#960;&#945;&#961;&#941;&#967;&#949;&#953; &#949;&#960;&#945;&#947;&#947;&#949;&#955;&#956;&#945;&#964;&#953;&#954;&#942; &#967;&#959;&#961;&#942;&#947;&#951;&#963;&#951; &#949;&#957;&#941;&#963;&#949;&#969;&#957; &#945;&#960;&#972; &#949;&#958;&#949;&#953;&#948;&#953;&#954;&#949;&#965;&#956;&#941;&#957;&#959; &#960;&#961;&#959;&#963;&#969;&#960;&#953;&#954;&#972;. &#917;&#957;&#948;&#959;&#956;&#965;&#970;&#954;&#941;&#962; &#954;&#945;&#953; &#965;&#960;&#959;&#948;&#972;&#961;&#953;&#949;&#962; &#949;&#957;&#941;&#963;&#949;&#953;&#962; &#947;&#953;&#945; &#952;&#949;&#961;&#945;&#960;&#949;&#943;&#949;&#962; &#972;&#960;&#969;&#962; &#945;&#957;&#964;&#953;&#966;&#955;&#949;&#947;&#956;&#959;&#957;&#974;&#948;&#951;, &#946;&#953;&#964;&#945;&#956;&#943;&#957;&#949;&#962;, &#942; &#940;&#955;&#955;&#945; &#966;&#940;&#961;&#956;&#945;&#954;&#945; &#946;&#940;&#963;&#949;&#953; &#953;&#945;&#964;&#961;&#953;&#954;&#942;&#962; &#963;&#965;&#957;&#964;&#945;&#947;&#942;&#962; &#8212; &#956;&#949; &#945;&#963;&#966;&#940;&#955;&#949;&#953;&#945; &#954;&#945;&#953; &#940;&#957;&#949;&#963;&#951;, &#967;&#969;&#961;&#943;&#962; &#945;&#957;&#945;&#956;&#959;&#957;&#942;.</p>
+    </div>
+  </section>
+
+  <section style="background:#fff;border-top:0.5px solid #c0e0cf">
+    <div class="section-title">&#917;&#960;&#953;&#954;&#959;&#953;&#957;&#969;&#957;&#943;&#945;</div>
+    <div class="divider"></div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h3>&#931;&#964;&#959;&#953;&#967;&#949;&#943;&#945; &#917;&#960;&#953;&#954;&#959;&#953;&#957;&#969;&#957;&#943;&#945;&#962;</h3>
+        <div class="contact-row"><span class="contact-label">&#916;&#953;&#949;&#973;&#952;&#965;&#957;&#963;&#951;</span><span class="contact-val">&#915;&#949;&#957;&#957;&#951;&#956;&#945;&#964;&#940; 14, &#931;&#965;&#954;&#953;&#941;&#962; 56625, &#920;&#949;&#963;&#963;&#945;&#955;&#959;&#957;&#943;&#954;&#951;</span></div>
+        <div class="contact-row"><span class="contact-label">&#932;&#951;&#955;&#941;&#966;&#969;&#957;&#959;</span><span class="contact-val" style="color:#1B6B3A">2310 624824</span></div>
+        <div class="contact-row"><span class="contact-label">Email</span><span class="contact-val">chrisgrollios@gmail.com</span></div>
+        <div class="map-placeholder"><span style="font-size:12px;color:#2D8A52">&#935;&#940;&#961;&#964;&#951;&#962; Google Maps</span></div>
+      </div>
+      <div class="contact-card">
+        <h3>&#8254;&#961;&#949;&#962; &#923;&#949;&#953;&#964;&#959;&#965;&#961;&#947;&#943;&#945;&#962;</h3>
+        <table class="hours-table">
+          <tr><td style="color:#666;padding-right:8px">&#916;&#949;&#965;&#964;&#941;&#961;&#945; &amp; &#932;&#949;&#964;&#940;&#961;&#964;&#951;</td><td>08:00 &#8211; 14:30</td></tr>
+          <tr><td style="color:#666;padding-right:8px">&#932;&#961;&#943;&#964;&#951;, &#928;&#941;&#956;&#960;&#964;&#951; &amp; &#928;&#945;&#961;&#945;&#963;&#954;&#949;&#965;&#942;</td><td>08:00 &#8211; 14:00<br>17:00 &#8211; 21:00</td></tr>
+          <tr><td style="color:#666;padding-right:8px">&#931;&#940;&#946;&#946;&#945;&#964;&#959;</td><td style="color:#888">&#922;&#955;&#949;&#953;&#963;&#964;&#940;</td></tr>
+          <tr><td style="color:#666;padding-right:8px">&#922;&#965;&#961;&#953;&#945;&#954;&#942;</td><td style="color:#888">&#922;&#955;&#949;&#953;&#963;&#964;&#940;</td></tr>
+        </table>
+        <div style="margin-top:12px;padding:8px 12px;background:#f4faf7;border-radius:8px;border:0.5px solid #c0e0cf">
+          <p style="font-size:12px;color:#1B6B3A;font-weight:500">&#917;&#966;&#951;&#956;&#949;&#961;&#943;&#945;</p>
+          <p style="font-size:11px;color:#666;margin-top:2px">&#917;&#960;&#953;&#954;&#959;&#953;&#957;&#969;&#957;&#942;&#963;&#964;&#949; &#963;&#964;&#959; 2310 624824 &#947;&#953;&#945; &#960;&#955;&#951;&#961;&#959;&#966;&#959;&#961;&#943;&#949;&#962; &#949;&#966;&#951;&#956;&#949;&#961;&#943;&#945;&#962;</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>&#934;&#945;&#961;&#956;&#945;&#954;&#949;&#943;&#959; &#935;&#961;&#942;&#963;&#964;&#959;&#962; &#915;&#961;&#972;&#955;&#955;&#953;&#959;&#962;</strong> &nbsp;|&nbsp; &#915;&#949;&#957;&#957;&#951;&#956;&#945;&#964;&#940; 14, &#931;&#965;&#954;&#953;&#941;&#962;, &#920;&#949;&#963;&#963;&#945;&#955;&#959;&#957;&#943;&#954;&#951; &nbsp;|&nbsp; 2310 624824</p>
+    <p style="margin-top:4px;color:#cde8d8">&#8199;&#972;&#955;&#945; &#964;&#945; &#948;&#953;&#954;&#945;&#953;&#974;&#956;&#945;&#964;&#945; &#948;&#953;&#945;&#964;&#951;&#961;&#959;&#973;&#957;&#964;&#945;&#953; &copy; 2026</p>
+  </footer>
+</div>
